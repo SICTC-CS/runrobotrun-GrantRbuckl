@@ -8,14 +8,39 @@ startx = -100
 starty = -100
 turtle_scale = 1.5
 
+#----- map variables
+current = 0
+maze1map = [[0,0,0,0,2],
+            [0,0,0,0,0],
+            [0,0,0,0,0],
+            [0,0,0,0,0],
+            [3,0,0,0,0]]
+
+
+
 #------ robot commands
-def move():
+def up():
   robot.dot(10)
+  robot.seth(90)
   robot.fd(50)
+
+def checkLoc(dir):
+  global current
+  if dir == up:
+    if 3 in maze1map[1]:
+      
+      
+  
+  
 
 def turn_left():
   robot.speed(0)
   robot.lt(90)
+  robot.speed(2)
+
+def turn_right():
+  robot.speed(0)
+  robot.rt(90)
   robot.speed(2)
 
 #----- init screen
@@ -47,6 +72,12 @@ wn.bgpic("maze1.png") # other file names should be maze2.png, maze3.png
 for step in range(3): # forward 3
   move()
 '''
+#Maze 1
+for i in range(4):
+  move()
+robot.rt(90)
+for i in range(4):
+  move()
 
 #---- end robot movement 
 wn.mainloop()
